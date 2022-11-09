@@ -102,7 +102,7 @@ def verify():
         return render_template('verify.html')
     
 @app.route('/frgpwd', methods=['GET','POST'])
-def forgotpassword():
+def frgpwd():
     msg =" "
     print(request.form)
     username1=request.form['username']
