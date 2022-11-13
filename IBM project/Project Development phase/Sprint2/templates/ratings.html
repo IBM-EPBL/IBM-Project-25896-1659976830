@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FEEDBACK FORM </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css"> 
+    <style>
+        body {
+            margin: 0 auto;
+            background-color: white;
+        }
+        button {
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+   
+    /* set a hover effect for the button*/
+    button:hover {
+        opacity: 0.8;
+    }
+   
+    /*set extra style for the cancel button*/
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+   
+   
+   
+    /*set padding to the container*/
+    .container {
+        padding: 16px;
+    }
+     
+    /*set the forgot password text*/
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+          
+        
+        div.formContainer {
+            margin: 4em auto 4em auto;
+            width: 80%;
+            color: #0f0d0d;
+            border: #0f0d0d;
+            border-radius: 2px;
+        }
+        
+        div.heading {
+            margin: 0 auto 0 auto;
+            width: 100%;
+            padding: 1em 0 1em 0;
+            letter-spacing: 0.1em;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-bottom: 1px solid #05cbfc;
+            text-align: center;
+            background-color: #05b6fcea;
+            color: black;
+        }
+        
+        div.description {
+            padding: 1em 0 1em 0;
+            width: 80%;
+            margin: 0 auto 0 auto;
+            text-align: center;
+        }
+        
+        div.form {
+            margin: 0 auto 0 auto;
+            width: 100%;
+        }
+        
+        div.form form {
+            margin: 0 auto 0 auto;
+            width: 80%;
+        }
+        
+        div.form label {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            outline: none;
+            color: #0f0d0d;
+            font-weight: bolder;
+            letter-spacing: 0.1;
+        }
+        
+        div.form input {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            outline: none;
+            color: #0f0d0d;
+            padding: 1.2em 0 1em 1.2em;
+            background-color: white;
+            border: 0.5px solid #0f0d0d;
+        }
+        
+        div.form textarea {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            outline: none;
+            color: #0f0d0d;
+            padding: 1.2em 0 1em 1.2em;
+            background-color: white;
+            border: 0.5px solid #0f0d0d;
+            height: 8em;
+            resize: none;
+        }
+        
+        div.form button {
+            outline: none;
+            margin: 2em auto 2em auto;
+            padding: 2em;
+            cursor: pointer;
+            border: none;
+            display: block;
+            width: 40%;
+            text-align: center;
+            border: 1px solid #0f0d0d;
+        } 
+          
+        
+        div.form input:active,
+        div.form input:focus,
+        div.form select:active,
+        div.form select:focus,
+        div.form textarea:active,
+        div.form textarea:focus,
+        div.form button:active,
+        div.form button:hover {
+            box-shadow: 0 0 2px 2px white;
+        }
+        
+        div.form button {
+            background-color: #0f0d0d;
+            color: #05b6fc;
+            font-weight: bolder;
+            transition: all 0.2s linear;
+        }
+        
+         @keyframes status {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        div.statusActive {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            padding: 1.2em 0 1em 1.2em;
+            background-color: #white;
+            color: #0f0d0d;
+            text-align: center;
+            animation-name: status;
+            animation-duration: 0.3s;
+            transition: all 0.2s linear;
+        }
+        
+        div.loadingActive {
+            width: 90%;
+            margin: 4em auto 4em auto;
+            grid-template-columns: 33.3% 33.3% 33.3%;
+            display: grid;
+            transition: all linear 0.2s;
+        }
+        
+        div.loadingActive div {
+            padding: 0.5em;
+            background-color: white;
+            animation-name: rotatingDiv;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        
+       
+        
+        @media only screen and (min-width: 1224px) {
+            div.formContainer {
+                width: 500px;
+            }
+        }
+        
+        @media only screen and (min-width: 1824px) {
+            div.formContainer {
+                width: 500px;
+            }
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            div.formContainer {
+                width: 80%;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section id="home" class="navbar">
+      <div class="container">
+          <div class="logo">
+              <a href="#" title="Logo">
+                  <img src="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo%20-%20Copy.jpeg" alt="Logo" class="img-responsive">
+              </a>
+          </div>
+
+          <div class="menu text-right">
+              <ul>
+               
+                  
+                  <li>
+                      <a href="{{url_for('logout')}}"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>
+                  </li>
+                 
+              </ul>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+  </section>
+   <section>
+    <div class="formContainer">
+        <div class="heading">
+            FEEDBACK FORM
+        </div>
+        <div class="description">
+            </div>
+        <div class="form">
+            <form id="form" action="/feedback" method="POST">
+                <label for="name">Username</label>
+                <input name="name" type="text" id="name" />
+                <label for="email">Email</label>
+                <input name="email" type="email" id="email" />
+                <label for="feedback">Feedback</label>
+                <textarea name="feedback" id="feedback"></textarea>
+                <button type="submit">SUBMIT</button>
+            </form>
+            {{msg}}
+        </div>
+
+        <div id="status">
+
+        </div>
+
+    </div>
+
+    <script>
+        class Feedback {
+            constructor() {
+                this.formEle = document.getElementById("form");
+                this.emailEle = document.getElementById("email");
+                this.designationEle = document.getElementById("designation");
+                this.nameEle = document.getElementById("name");
+                this.feedbackEle = document.getElementById("feedback");
+                this.statusEle = document.getElementById("status");
+                this.loading = document.getElementById("loading");
+            }
+            isEmpty(value) {
+                return (value.trim().length == 0) ? true : false;
+            }
+            invalidLength(value, len) {
+                return (value.length > len) ? true : false;
+            }
+            validateEmail(email) {
+                let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+            initialize() {
+                this.formEle.onsubmit = (e) => {
+                    e.preventDefault();
+                    this.removeStatus();
+                    this.addLoading();
+                    this.validate();
+                }
+            }
+
+            validate() {
+                let email = this.emailEle.value.trim();
+                let feedback = this.feedbackEle.value.trim();
+                let name = this.nameEle.value.trim();
+                let hasErrors = false;
+                let errors = `<h>ERROR</h>`;
+                if (this.isEmpty(name)) {
+                    errors = `${errors} <p> We need your name pal !!! </p>`;
+                    hasErrors = true;
+                }
+                if (this.invalidLength(name, 59)) {
+                    errors = `${errors} <p>Name cant exceed 60 characters</p>`;
+                    hasErrors = true;
+                }
+                if (!this.validateEmail(email)) {
+                    errors = `${errors} <p> Is that a valid email ? ? </p>`;
+                    hasErrors = true;
+                }
+                if (this.isEmpty(email)) {
+                    errors = `${errors} <p> Email can not be empty </p>`;
+                    hasErrors = true;
+                }
+                if (this.invalidLength(email, 319)) {
+                    errors = `${errors} <p>Email can not exceed 320 characters</p>`;
+                    hasErrors = true;
+                }
+
+                if (this.isEmpty(feedback)) {
+                    errors = `${errors} <p> Irony....!feedback cant be empty</p>`;
+                    hasErrors = true;
+                }
+                if (this.invalidLength(feedback, 5999)) {
+                    errors = `${errors} <p>Thats a long feedback,sorry feedback can not exceed 6000 characters</p>`;
+                    hasErrors = true;
+                }
+
+                if (hasErrors) {
+                    this.setStatus(errors);
+                } 
+                }
+            }
+
+
+        
+    </script>
+    
+</body>
+
+</html>
