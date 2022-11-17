@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css">
+   
+   
+<style>
+   
+    /*assign full width inputs*/
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+   
+    /*set a style for the buttons*/
+    button {
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+   
+    /* set a hover effect for the button*/
+    button:hover {
+        opacity: 0.8;
+    }
+   
+    
+
+    /*set the Modal background*/
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+   
+    /*style the model content box*/
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        border: 1px solid #888;
+        width: 80%;
+    }
+   
+    
+     
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+   
+   
+     
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+    side-nav.{
+        position: fixed;
+        width: 40px;
+        height: 100%;
+        background: #FFFFFF;
+        transition: 0.5s;
+        overflow: hidden;
+        box-shadow: 2px 2px 3px rgb(0 0 0 / 10%);
+        z-index: 30000; 
+    }
+    }
+</style>
+</head>
+<body>
+ <!-- Navbar Section Starts Here -->
+    <section id="home" class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#" title="Logo">
+                    <img src="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo%20-%20Copy.jpeg" alt="Logo" class="img-responsive">
+                </a>
+            </div>
+
+            <div class="menu text-right">
+                <ul class=" nav-but">
+                    <li>
+                        <a href="{{url_for('logout')}}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section>
+        <div class="r">
+            <div class="button">
+                     <span class="fas fa-bars"></span>
+            </div>
+            <ul>
+               <li><a href="{{url_for(viewprofile)}}"> View Profile</a></li>
+                <li><a href="#">Food analyser</a></li>
+               <li><a href="{{url_for(search)}}">Recipes</a></li>
+               <li><a href="{{url_for(feedback)}}">Feedback</a></li>
+            </ul>
+         </div>
+         <script>
+            $(document).ready(function(){
+              $('.button').click(function(){
+                if($(this).hasClass('expand')){
+                  $('ul').slideUp(function(){
+                    $('.button').removeClass('expand');
+                    $('.fas').removeClass('expand')
+                  });
+                }else{
+                  $(this).addClass('expand');
+                  setTimeout(function(){
+                    $('.fas').addClass('expand');
+                    $('ul').stop().slideDown();
+                  },200);
+                }
+              });
+            });
+         </script>
+      
+   
+    </section>
+    </body>
+</html>
+    

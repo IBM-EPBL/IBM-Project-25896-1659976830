@@ -1,0 +1,93 @@
+<script>
+        var modal = document.getElementById('id01');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo.jpeg
+
+    <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>               
+            </div>
+
+API ROUGHT :
+
+   
+let self = this;
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.onreadystatechange = function () {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        self.successCallback(JSON.parse(xmlHttp.responseText));
+    }
+}
+var url = this.uploadUrl + '?imageUrl=' + encodeURIComponent(this.demoImageUrl);
+xmlHttp.open("GET", url, true);
+xmlHttp.setRequestHeader('x-rapidapi-host', this.uploadHeaders['x-rapidapi-host']);
+xmlHttp.setRequestHeader('x-rapidapi-key', this.uploadHeaders['x-rapidapi-key']);
+xmlHttp.send(null);
+
+
+url = "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition"
+
+querystring = {"query":"1lb brisket with fries"}
+
+headers = {
+	"X-RapidAPI-Key": "ad933ea36amsh6b0a83e514b1a58p14bc9ejsne745a5851a1b",
+	"X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com"
+}
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+json_ans=response.json
+print(son_ans.keys
+df1=pandas.Dataframe({
+
+})
+
+st(response)
+
+
+use_reloader=False
+
+str(request.args['ingridients']).strip() != ""
+
+#print(data)
+#dic=json.loads(response.text)
+id=response['id']
+print(id)
+name=dic[name]
+print(name)
+
+if (food != ""):
+
+else:
+      # Random recipes
+      querystring = {"number":"5"}
+      response = requests.request("GET", url + getRandomRecipe, headers=headers, params=querystring).json()
+      print(response)
+      return render_template('recipes.html', recipes=response['recipes'])
+
+      methods=['POST','GET']
+
+      print(data)
+      print(data[0])
+
+      #with open(file.filename, "rb") as f:
+        #file_data = f.read()
+        #print(file_data)
+
+         @keyframes rotatingDiv {
+            from {
+                transform: rotate(-180deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+Email Id
+<input type="email" name="email"><br><br>
+
+ <!-- <a href="{{url_for('logout')}}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>--> 
+
+ {% for value in account.items() %}

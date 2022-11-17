@@ -1,0 +1,114 @@
+<html>  
+   <head> 
+      <link rel="stylesheet" href="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css"> 
+   <style>  
+   body{  
+   font-style :normal;
+   font-variant: bold;  
+   font-weight: bold;  
+   font-size: 20px;  
+   font-family: garamond, cursive;  
+   }  
+   
+   
+    /*set a style for the buttons*/
+    button {
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    .editbutton{
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 50px ;
+        border: groove;
+        cursor: pointer;
+        width: auto;
+        align: center;
+        display: block
+    
+
+    }
+   
+    /* set a hover effect for the button*/
+    button:hover {
+        opacity: 0.8;
+    }
+   
+    /*set extra style for the cancel button*/
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+   
+   
+   
+    /*set padding to the container*/
+    .container {
+        padding: 16px;
+    }
+     
+    /*set the forgot password text*/
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+    h1{background-color:white;font-style:normal}
+   </style>  
+</style>
+</head>
+<body>
+   <section id="home" class="navbar">
+      <div class="container">
+          <div class="logo">
+              <a href="#" title="Logo">
+                  <img src="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo%20-%20Copy.jpeg" alt="Logo" class="img-responsive">
+              </a>
+          </div>
+
+          <div class="menu text-right">
+              <ul>
+                  <li>
+                      <a href="{{url_for('logout')}}"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>
+                  </li>
+                 
+              </ul>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+  </section>
+   <section>
+<br>
+<h1 align="left corner">PROFILE</h1>
+<form action="/personinfo" method="POST">
+ Name
+<input type="text" name="name"><br><br>
+ Gender
+<input type="text" name="Gender"><br><br>
+ Age
+<input type="text" name="age"><br><br>
+Height
+<input type="text" name="Height"><br><br>
+Weight
+<input type="text" name="Weight"><br><br>
+Target Weight
+<input type="Target Weight" name="Target Weight"><br><br>
+Health Condition
+<input type="text" name=" Health"><br><br>
+Location
+<input type="text" name="Location"><br><br>
+Phone Number
+<input type="text" name="Phone Number"><br><br>
+<input class="editbutton" type="submit" value="Save">
+</form>
+</section>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<html>  
+   <head> 
+      <link rel="stylesheet" href="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css"> 
+   <style>  
+   body{  
+   font-style: italic;  
+   font-variant: bold;  
+   font-weight: bold;  
+   font-size: 20px;  
+   font-family: garamond, cursive;  
+   }  
+   button {
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+   
+    /* set a hover effect for the button*/
+    button:hover {
+        opacity: 0.8;
+    }
+   </style>  
+<html>
+<head>
+<style>
+h1{background-color:white;font-style:italic}
+</style>
+</head>
+<body>
+    <section id="home" class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#" title="Logo">
+                    <img src="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo%20-%20Copy.jpeg" alt="Logo" class="img-responsive">
+                </a>
+            </div>
+
+            <div class="menu text-right">
+                <ul>
+                    <li>
+                        <a href="{{url_for('viewprofile')}}">View Profile</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('get_nutri')}}">Food analyzer</a>
+                    </li>
+                    
+                    <li>
+                        <a href="{{url_for('search_page')}}">Recipes</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('feedback')}}">Feedback</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('logout')}}"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>
+                     </li>
+                 
+                 </ul>
+            </div>
+          <div class="clearfix"></div>
+      </div>
+  </section>
+   <section>
+   
+<h1 align="left corner">PROFILE</h1><br><br>
+    <label>Name :{{(account["NAME"])}}</label><br><br>
+    <label>Gender: {{account["GENDER"]}}</label><br><br>
+    <label>Age   :{{account["AGE"]}}</label><br><br>
+      <label>Height:{{account["HEIGHT"]}}</label><br><br>
+      <label>Weight:{{account["WEIGHT"]}}</label><br><br>
+      <label>Target Weight:{{account["TARGET_WEIGHT"]}}</label><br><br>
+      <label>Health Condition:{{account["HEALTH"]}}</label><br><br>
+      <label>Phone Number:{{account["PHONNO"]}}</label><br><br>
+      <label>Location: {{account["LOCATION"]}}</label><br><br>
+      {{msg}}
+      <div class="menu text-center">
+        <ul>
+            
+            <li>
+                <a href="{{url_for('per_info')}}"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Edit</button></a>
+            </li>
+           
+        </ul>
+    </div>
+</form>
+</section>
+</body>
+</html>
+

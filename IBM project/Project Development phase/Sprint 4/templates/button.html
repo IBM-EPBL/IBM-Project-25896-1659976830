@@ -1,0 +1,65 @@
+<html>
+    <head>
+      <style>
+        table, th, td {
+          border:1px solid black;
+          width: 50%;
+        }
+        </style>
+        <link rel="stylesheet"  type="text/css" href="static\styles\buttom.css" >
+        <script src="..\static\script\button.js"></script>
+    </head>
+    <body>
+        <main class="main_full">
+            <div class="container">
+              <div class="panel">
+                <div class="button_outer">
+                  <div class="btn_upload">
+                    <form enctype="multipart/form-data" action="/" method="POST">
+                      <input type="file" id="Image" name="Image">
+                      <br>
+                      <input type="text" name="food" placeholder="Enter name">
+                      <input type="submit" value="Submit" name="submit">Upload Image<br><bUpload Image<br><br><br><br>
+                    </form>
+                  </div>
+                  <div class="processing_bar"></div>
+                  <div class="success_box"></div>
+                  <img src="{{img}}" height="50%" width="50%">
+                </div>
+              </div>
+              <div class="error_msg"></div>
+              <div class="uploaded_file_view" id="uploaded_view">
+                <span class="file_remove">X</span>
+
+                 
+              </div>
+            </div>
+          </main>
+          <div >
+          <table>
+            <tr>
+                <th>Food items</th>
+                <th>calories</th>
+                <th>Fiber</th>
+                <th>Protine</th>
+                <th>fats</th>
+            </tr>
+            {% for ite in result %}
+            <tr>
+              <td>{{ite}}</td>
+         
+               {% for n in nutri %}
+                  {% for key,value in n.items() %}
+                    <td>{{n['calories']}}</td>
+                    <td>{{n['fiber_g']}}</td>
+                    <td>{{n['protein_g']}}</td>
+                    <td>{{n['fat_total_g']}}</td>
+                  {% endfor %}
+                {% endfor %}
+            </tr>
+                
+            {% endfor %}
+          
+          </table>
+    </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- Important to make website responsive -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NUTRIFY</title>
+        
+        <link rel="stylesheet" href="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css">
+        <style>
+            table, th, td {
+          border:1px solid black;
+          width: 50%;
+        }
+            /*set a style for the buttons*/
+
+        button {
+            background-color: #29afa4;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+       
+        /* set a hover effect for the button*/
+        button:hover {
+            opacity: 0.8;
+        }
+       
+       
+        /*set padding to the container*/
+        .container {
+            padding: 16px;
+        }
+         
+        /*set the forgot password text*/
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Navbar Section Starts Here -->
+        <section id="home" class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="#" title="Logo">
+                        <img src="https://nutri24.s3.jp-tok.cloud-object-storage.appdomain.cloud/logo%20-%20Copy.jpeg" alt="Logo" class="img-responsive">
+                    </a>
+                </div>
+    
+                <div class="menu text-right">
+                    <ul>
+                        <li>
+                            <a href="{{url_for('viewprofile')}}">View Profile</a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('get_nutri')}}">Food analyzer</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{url_for('search_page')}}">Recipes</a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('feedback')}}">Feedback</a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('logout')}}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</button></a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        <div id="app">
+            <h1>Upload a food picture </h1>
+            <div class="center">
+                <div class="form-input">
+                    <div class="preview">
+                        <img id="file-ip-1-preview">
+                    </div>
+                <form action="/food" method="POST" enctype="multipart/form-data">
+                <label for="file-ip-1">Upload Image</label>
+                <input type="file" id="file-ip-1" accept="image/*"  name="Image" onchange="showPreview(event);">
+                <input class="button" type="submit"  value="Submit">
+            </form>
+            </div>
+            </div>
+            <br><br><h2>Enter the food name</h2>
+            <form  action="food" method="POST">
+                <input class="inputtext" type="text" placeholder="Enter the name food" name="food">
+                <input class="button" type="submit"  value="Submit">
+            </form>  
+        </div>   
+        <table>
+            <tr>
+                <th class="data">Nutrients</th>
+                <th class="data">Nutrients value</th>
+            </tr>
+            {% for item in result %}
+               {% for key,value in item.items() %}
+               <tr>
+                <td class="data">{{key}}</td>
+                <td class="data">{{value}}</td>
+                </tr>
+              {% endfor %}
+          {% endfor %}
+        </table>  
+            <script>
+              function showPreview(event){
+                if(event.target.files.length > 0){
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+            }
+        </script>   
+            
+        
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        #app {
+            font-family: 'Indie Flower', cursive;
+            background-color: rgb(243, 243, 243);
+    
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+            border-radius: 22px;
+        }
+        .center {
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .form-input img {
+            width:100%;
+            display:none;
+            margin-bottom:30px;
+        }
+
+        .form-input {
+            width:350px;
+            padding:20px;
+            background:#fff;
+            box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+            }
+
+        .form-input input {
+            display:none;
+        }
+
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:15px;
+  font-family:"Open Sans",sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+        #app>h1:first-of-type {
+            margin-top: 0;
+        }
+        .inputtext{
+            width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        }
+        .button {
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+        .imgbutton{
+        background-color: #29afa4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+        
+        h1 {
+            margin-top: 60px;
+        }
+
+       
+
+        .nutritionBar {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .nutritionBar div {
+            height: 100%;
+            width: 0;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .nutritionBar span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 22px;
+            display: inline;
+        }
+
+        span.category {
+            background-color: #29ad43;
+            color: white;
+            padding: 0 10px;
+            border-radius: 10px;
+        }
+
+        #calories div {
+            background-color: #ff5c5c;
+        }
+
+        #fat div {
+            background-color: #3fcc3f;
+        }
+
+        #protein div {
+            background-color: #7077ff;
+        }
+
+        #carbs div {
+            background-color: #ff9400;
+        }
+
+       
+    </style>
+               
+    
+</html>
