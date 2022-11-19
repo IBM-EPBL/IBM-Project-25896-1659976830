@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: nutrify-deployment
+ spec:
+   replicas: 2
+   selector:
+     matchLabels:
+       app: nutrify
+   template:
+     metadata:
+       labels:
+         app: nutrify
+     spec:
+       containers:
+       - name: flasknode
+         image: safee306/nutrify
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
